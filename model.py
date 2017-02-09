@@ -8,6 +8,11 @@ from datetime import datetime
 Base = declarative_base()
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 527416e74f287deb05437a53324b8f32d93f1fff
 class Customer(Base):
     __tablename__ = 'customer'
     id = Column(Integer, primary_key=True)
@@ -28,7 +33,11 @@ class Item(Base):
     __tablename__ = 'item'
     id = Column(Integer, primary_key=True)
     description = Column(String(255))
+<<<<<<< HEAD
     picture = Column(String(255))
+=======
+    picture_link = Column(String(255))
+>>>>>>> 527416e74f287deb05437a53324b8f32d93f1fff
     price = Column(String(255))
     location = Column(String(255))
     customer = relationship("Customer", back_populates="items")
@@ -50,6 +59,10 @@ class Comment(Base):
 engine = create_engine('sqlite:///Second_hand.db')
 Base.metadata.create_all(engine)
 DBSession = sessionmaker(bind=engine, autoflush=False)
+<<<<<<< HEAD
 session = DBSession()
 
 
+=======
+session = DBSession()
+>>>>>>> 527416e74f287deb05437a53324b8f32d93f1fff
