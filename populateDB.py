@@ -26,12 +26,12 @@ session.commit()
 
 #Make Items
 
-item1 = Item(description = "putsomething here", price = "99", picture = "", location = "Tivon")
+item1 = Item(description = "putsomething here", price = "99", picture = "http://static5.businessinsider.com/image/56003642eab8eacf2b88ff27-440/herschel-supply-co-heritage-backpack-5499.jpg", location = "Tivon")
 item1.customer_id = 1
 session.add(item1)
 session.commit()
 
-item2 = Item(description = "apple", price = "9", picture= "", location = "Nazareth")
+item2 = Item(description = "apple", price = "9", picture= "https://s-media-cache-ak0.pinimg.com/736x/09/9c/d2/099cd2c7de317c07f134a4f69ec12760.jpg", location = "Nazareth")
 item2.customer_id = 4
 session.add(item2)
 session.commit()

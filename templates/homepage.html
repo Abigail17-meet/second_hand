@@ -2,16 +2,35 @@
 <html>
 <head>
 	<title>Second Hand</title>
+	<input type="submit" value="add item">
+	<a href="{{ url_for('newCustomer') }}"> Sign up here! </a>
+	<a href="{{ url_for('login') }}"> login </a>
+	
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
-<body>
-<h1>Hi Abigail</h1>
+<body id="homepage">
+
+<h1>lately added</h1>
+{% for comment in comments %}
+<div>
+	 <p>{{comment.text }}</p>
+</div>
+{% endfor %}
 
 {% for item in items %}
 <div class="product">
+		
+
+
 	
-   	
-      	<p>{{item.price}}</p>
-      	<img src={{item.picture}} height="250" >
+        <p>{{item.location }}</p>
+      	<p>{{item.price }}</p>
+      	<p>{{item.description }}</p>
+      	<img src="{{item.picture}}" height="250" >
+      	 Comment:<br>
+  <input type="text" name="comment"><br>
+  
   	</div>
   	{% endfor %}
 

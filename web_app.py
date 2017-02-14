@@ -6,6 +6,7 @@ from werkzeug.utils import secure_filename
 import locale, os
 
 app = Flask(__name__)
+app.secret_key = "mu_secret_key"
 
 
 engine = create_engine('sqlite:///Second_hand.db')
@@ -54,6 +55,9 @@ def newCustomer():
         email = request.form['email']
         password = request.form['password']
         address = request.form['address']
+        customer = Customer(name=name,email=email,address=address )
+        customer.hash_password(password)
+        session.commit()
         if name is None or email is None or password is None or 'file' not in request.files:
             flash("Your form is missing arguments")
             return redirect(url_for('newCustomer'))
@@ -82,7 +86,7 @@ def newCustomer():
         	flash("Please upload either a .jpg, .jpeg, .png, or .gif file.")
         	return redirect(url_for('newCustomer'))
     else:
-        return render_template('newCustomer.html')
+        return render_template('homepage.html')
 
 def verify_password(email, password):
 	customer = session.query(Customer).filter_by(email=email).first()

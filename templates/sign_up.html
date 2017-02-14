@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}Login Page{% endblock %}
+{% block body %}
+<form action="{{ url_for('newCustomer') }}" method = 'post'>
+  Email Address:<br>
+  <input type="text" name="email"><br>
+   Name:<br>
+  <input type="text" name="name"><br>
+   Address:<br>
+  <input type="text" name="adress"><br>
+  Password:<br>
+  <input type="password" name="password">
+   <input type="submit" value="Login">
+</form>
+
+
+<p> Don't have an account? Create one <a href={{url_for('newCustomer')}}>Here</a></p>
+{% endblock %}

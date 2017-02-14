@@ -28,10 +28,7 @@ class Item(Base):
     __tablename__ = 'item'
     id = Column(Integer, primary_key=True)
     description = Column(String(255))
-
     picture = Column(String(255))
-
-
     price = Column(String(255))
     location = Column(String(255))
     customer = relationship("Customer", back_populates="items")
