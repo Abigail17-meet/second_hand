@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 from flask import Flask, url_for, flash, render_template, redirect, request, g, send_from_directory
 from flask import session as login_session
 from model import *
@@ -7,20 +7,13 @@ import locale, os
 
 app = Flask(__name__)
 
+
 engine = create_engine('sqlite:///Second_hand.db')
-=======
-from flask import flask
-from model import *
+Base.metadata.create_all(engine)
+DBSession = sessionmaker(bind=engine, autoflush=False)
 
-app = flask(_name_)
-
-engine = create_engine('sqlite:///fizzBuzz.db')
->>>>>>> 527416e74f287deb05437a53324b8f32d93f1fff
-Base.metadata.bind = engine
-DBSession = sessionmaker(bind=engine,autoflush=False)
 session = DBSession()
 
-<<<<<<< HEAD
 
 
 
@@ -101,11 +94,11 @@ def verify_password(email, password):
 if __name__ == '__main__':
 	print("In Here!")
 	app.run(debug=True)
-=======
-@app.route('/')\
-def hello_world();
-	return 'Hellow world'
+
+#@app.route('/')\
+#def hello_world();
+#	return 'Hellow world'
 
 if __name__=='_main_':
 	app.run(debug=True)
->>>>>>> 527416e74f287deb05437a53324b8f32d93f1fff
+
